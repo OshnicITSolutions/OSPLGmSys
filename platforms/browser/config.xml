@@ -8,6 +8,5 @@
         Team Oshnic IT
     </author>
     <content src="index.html" />
-    <preference name="phonegap-version" value="7.1.1" />
     <access origin="*" />
 </widget>

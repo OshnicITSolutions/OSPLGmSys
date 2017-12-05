@@ -10,5 +10,4 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="phonegap-version" value="7.1.1" />
 </widget>
