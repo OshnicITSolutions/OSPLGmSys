@@ -1,0 +1,13 @@
+{
+  "name": "com.oshnic.gmsys",
+  "version": "1.0.0",
+  "displayName": "OSPLGmSys",
+  "cordova": {
+    "platforms": [
+      "browser"
+    ]
+  },
+  "dependencies": {
+    "cordova-browser": "~5.0.1"
+  }
+}
