@@ -11,4 +11,7 @@
         </activity>
     </application>
     <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="26" />
+    <access origin="*"/> <!-- allow local pages -->
+    <allow-navigation href="*" />
+    <allow-intent href="*" />
 </manifest>
