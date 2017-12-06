@@ -2,10 +2,10 @@
 <widget id="com.oshnic.gmsys" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>OSPLGmSys</name>
     <description>
-        A blank PhoneGap app.
+        Oshnic's Godown Management System
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="info@osindia.in" href="http://osindia.in">
+        Team Oshnic 
     </author>
     <content src="index.html" />
     <access origin="*" />

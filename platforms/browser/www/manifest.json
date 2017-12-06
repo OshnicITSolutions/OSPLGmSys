@@ -4,8 +4,8 @@
   "name": "OSPLGmSys",
   "short_name": "OSPLGmSys",
   "version": "com.oshnic.gmsys",
-  "description": "A blank PhoneGap app.",
-  "author": "PhoneGap Team",
+  "description": "Oshnic's Godown Management System",
+  "author": "Team Oshnic",
   "icons": [],
   "start_url": "index.html"
 }
