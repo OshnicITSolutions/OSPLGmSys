@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mobile Angular UI Demo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-hover.min.css" />
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-base.min.css" />
+    <link rel="stylesheet" href="dist/css/mobile-angular-ui-desktop.min.css" />
+    <link rel="stylesheet" href="demo.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <script src="dist/js/mobile-angular-ui.min.js"></script>
+    <!-- Required to use $touch, $swipe, $drag and $translate services -->
+    <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
+    <script src="app.js"></script>
+    <script src="common/directive.js"></script>
+    <script src="auth.js"></script>
+</head>
+
+<body ng-app="OSPLGmSys" ng-controller="authController" ui-prevent-touchmove-defaults>
+    <div ui-content-for="title">
+        <span>Login</span>
+    </div>
+
+    <div class="scrollable">
+        <div class="scrollable-content section">
+
+            <form role="form" ng-submit='login()'>
+                <fieldset>
+                    <legend>Login</legend>
+                    <div class="form-group has-success has-feedback">
+                        <label>Mobile No</label>
+                        <input type="text" ng-model="mobile" class="form-control" placeholder="Enter mobile no">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Remember Me</label>
+                        <ui-switch ng-model="rememberMe"></ui-switch>
+                    </div>
+                </fieldset>
+                <hr>
+
+                <button class="btn btn-primary btn-block">
+                    Login
+                </button>
+
+                <a href="register.html">Register</a>
+                <div ui-content-for="navbarAction">
+                    <a class="btn" ng-click="login()">Login</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div ui-yield-to="modals"></div>
+</body>
+
+</html>

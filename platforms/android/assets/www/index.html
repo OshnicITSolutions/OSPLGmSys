@@ -17,11 +17,13 @@
     <script src="dist/js/mobile-angular-ui.min.js"></script>
     <!-- Required to use $touch, $swipe, $drag and $translate services -->
     <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
+    <script src="app.js"></script>
+    <script src="common/directive.js"></script>
     <script src="demo.js"></script>
   </head>
 
   <body
-    ng-app="MobileAngularUiExamples"
+    ng-app="OSPLGmSys"
     ng-controller="MainController"
     ui-prevent-touchmove-defaults
     >
@@ -42,7 +44,7 @@
 
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          Mobile Angular UI
+          Godown Management System
         </div>
         <div class="btn-group pull-left">
           <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
