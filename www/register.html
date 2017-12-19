@@ -61,15 +61,14 @@
 
                     <div class="form-group">
                         <label>Confirm PIN</label>
-                        <input type="text" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="confirmPIN" maxlength="4">
+                        <input type="text" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="confirmPIN"
+                            maxlength="4">
                     </div>
-
+                    <button class="btn btn-primary btn-block">
+                        Register
+                    </button>
                 </fieldset>
-                <hr>
 
-                <button class="btn btn-primary btn-block">
-                    Register
-                </button>
 
                 <div ui-content-for="navbarAction">
                     <a class="btn" ng-click="register()">Register</a>

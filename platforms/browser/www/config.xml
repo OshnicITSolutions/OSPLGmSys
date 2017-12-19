@@ -7,7 +7,7 @@
     <author email="info@osindia.in" href="http://osindia.in">
         Team Oshnic 
     </author>
-    <content src="index.html" />
+    <content src="auth.html" />
     <allow-navigation href="*" />
     <allow-intent href="*" />
     <access origin="*" />
