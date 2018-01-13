@@ -17,3 +17,4 @@ var OSPLGmSysApp = angular.module('OSPLGmSys', [
   // opening sidebars, turning switches on/off ..
   'mobile-angular-ui.gestures'
 ]);
+

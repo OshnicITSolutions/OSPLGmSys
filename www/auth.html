@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="OSPLGmSys">
 
 <head>
     <meta charset="utf-8" />
@@ -18,12 +18,11 @@
     <script src="dist/js/mobile-angular-ui.min.js"></script>
     <!-- Required to use $touch, $swipe, $drag and $translate services -->
     <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
-    <script src="app.js"></script>
-    <script src="common/directive.js"></script>
-    <script src="auth.js"></script>
+    <script src="plugin/lz-string.min.js"></script>
+    
 </head>
 
-<body ng-app="OSPLGmSys" ng-controller="authController" ui-prevent-touchmove-defaults>
+<body  ng-controller="authController" ui-prevent-touchmove-defaults>
     <div ui-content-for="title">
         <span>Login</span>
     </div>
@@ -31,17 +30,17 @@
     <div class="scrollable">
         <div class="scrollable-content section">
 
-            <form role="form" ng-submit='login()'>
+            <form role="form" name="loginForm">
                 <fieldset>
                     <legend>Login</legend>
                     <div class="form-group has-success has-feedback">
                         <label>Mobile No</label>
-                        <input type="text" ng-model="mobile" class="form-control" placeholder="Enter mobile no">
+                        <input name="mobile"  type="text" ng-model="loginData.mobileNo" class="form-control" placeholder="Enter mobile no">
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                        <input name="password" type="password" class="form-control" placeholder="Password" ng-model="loginData.Password">
                     </div>
 
                     <div class="form-group">
@@ -51,11 +50,12 @@
                 </fieldset>
                 <hr>
 
-                <button class="btn btn-primary btn-block">
+                <button class="btn btn-primary btn-block" ng-click="login()">
                     Login
                 </button>
 
-                <a href="register.html">Register</a>
+
+                <a class="btn btn-danger btn-block" href="register.html">Register</a>
                 <div ui-content-for="navbarAction">
                     <a class="btn" ng-click="login()">Login</a>
                 </div>
@@ -65,6 +65,13 @@
     </div>
 
     <div ui-yield-to="modals"></div>
+    
+    <script src="app.js"></script>
+    <script src="common/directive.js"></script>
+    <script src="common/interceptor.js"></script>
+    <script src="common/pageService.js"></script>
+
+    <script src="auth.js"></script>
 </body>
 
 </html>

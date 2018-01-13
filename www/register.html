@@ -18,9 +18,8 @@
     <script src="dist/js/mobile-angular-ui.min.js"></script>
     <!-- Required to use $touch, $swipe, $drag and $translate services -->
     <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
-    <script src="app.js"></script>
-    <script src="common/directive.js"></script>
-    <script src="register.js"></script>
+    <script src="plugin/lz-string.min.js"></script>
+    
 </head>
 
 <body ng-app="OSPLGmSys" ng-controller="registerController" ui-prevent-touchmove-defaults>
@@ -31,54 +30,58 @@
     <div class="scrollable">
         <div class="scrollable-content section">
 
-            <form role="form" ng-submit='register()'>
+            <form role="form" name="editForm" ng-submit='register(editForm)'>
                 <fieldset>
                     <legend>Register</legend>
                     <div class="form-group has-success has-feedback">
                         <label>User Id</label>
-                        <input type="text" name="userId" ng-required="true" ng-model="userId" class="form-control" placeholder="Enter User Id">
+                        <input name="userId" type="text" name="userId" ng-required="true" ng-model="entity.userId" class="form-control" placeholder="Enter User Id">
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" name="password" ng-required="true" class="form-control" placeholder="Password" ng-model="password">
+                        <input type="password" name="password" ng-required="true" class="form-control" placeholder="Password" ng-model="entity.password">
                     </div>
 
                     <div class="form-group">
                         <label>Corporate Id</label>
-                        <input type="text" name="corpoId" ng-required="true" class="form-control" placeholder="Corporate Id" ng-model="corporateId">
+                        <input type="text" name="corpoId" ng-required="true" class="form-control" placeholder="Corporate Id" ng-model="entity.corporateId">
                     </div>
 
                     <div class="form-group has-success has-feedback">
                         <label>Mobile No</label>
-                        <input type="text" name="mobileNo" ng-required="" ng-model="mobileNo" class="form-control" placeholder="Enter Mobile No">
+                        <input type="text" name="mobileNo" ng-required="" ng-model="entity.mobileNo" class="form-control" placeholder="Enter Mobile No">
                     </div>
 
                     <div class="form-group">
                         <label>Login PIN</label>
-                        <input type="password" name="loginPIN" ng-required="" class="form-control" placeholder="Login PIN" ng-model="loginPIN" maxlength="4">
+                        <input type="password" name="loginPIN" ng-required="" class="form-control" placeholder="Login PIN" ng-model="entity.loginPIN" maxlength="4">
                     </div>
 
                     <div class="form-group">
                         <label>Confirm PIN</label>
-                        <input type="text" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="confirmPIN"
+                        <input type="text" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="entity.confirmPIN"
                             maxlength="4">
                     </div>
-                    <button class="btn btn-primary btn-block">
+                    <button type="submit" class="btn btn-primary btn-block">
                         Register
                     </button>
+                    <a class="btn btn-danger btn-block" href="auth.html">Login</a>
                 </fieldset>
-
-
                 <div ui-content-for="navbarAction">
-                    <a class="btn" ng-click="register()">Register</a>
                 </div>
-
             </form>
         </div>
     </div>
 
     <div ui-yield-to="modals"></div>
+
+    <script src="app.js"></script>
+    <script src="common/directive.js"></script>
+    <script src="common/interceptor.js"></script>
+    <script src="common/pageService.js"></script>
+
+    <script src="register.js"></script>
 </body>
 
 </html>
