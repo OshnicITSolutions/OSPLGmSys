@@ -34,11 +34,19 @@ OSPLGmSysApp.config(function ($routeProvider) {
 //
 OSPLGmSysApp.controller('MainController', function ($rootScope, $scope) {
 
-  var authData = window.localStorage.getItem(".token")
+  var authData = localStorage.getItem(".token")
   if (authData == null) {
     location.href = 'auth.html'
     return;
   }
+
+
+  var tokenStr = LZString.decompressFromEncodedURIComponent(authData);
+  var tokenObj = angular.fromJson(tokenStr);
+  $rootScope.user = tokenObj;
+
+  $scope.user = $rootScope.user;
+  console.log($scope.user)
 
   onDeviceReady();
   document.addEventListener("deviceready", onDeviceReady, false);
@@ -49,6 +57,10 @@ OSPLGmSysApp.controller('MainController', function ($rootScope, $scope) {
 
   }
 
+  $scope.logout = function () {
+    localStorage.clear();
+    location.href = 'auth.html';
+  }
   $scope.swiped = function (direction) {
     alert('Swiped ' + direction);
   };

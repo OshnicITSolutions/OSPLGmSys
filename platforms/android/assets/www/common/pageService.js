@@ -3,6 +3,7 @@
 OSPLGmSysApp.factory('pageService', ['$http', '$rootScope',
     function ($http, $rootScope) {
         var serviceAPIBaseURL = 'http://api.osindia.in/api/';
+        // var serviceAPIBaseURL = 'http://localhost:62207/api/';
 
 
         function _registerNewUser(entity) {
@@ -33,9 +34,22 @@ OSPLGmSysApp.factory('pageService', ['$http', '$rootScope',
 
 
         }
+
+
+        function _getGrandSummary() {
+
+            var url = serviceAPIBaseURL + 'Data/Grand'
+            return $http.get(url).then(function (results) {
+                return results;
+            });
+
+        }
+
         var pageServiceFactory = {};
 
         pageServiceFactory.registerNewUser = _registerNewUser;
         pageServiceFactory.token = _token;
+
+        pageServiceFactory.getGrandSummary = _getGrandSummary;
         return pageServiceFactory;
     }]);

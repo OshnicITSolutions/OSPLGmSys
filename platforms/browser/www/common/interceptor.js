@@ -13,7 +13,10 @@ OSPLGmSysApp.factory('authInterceptorService', ['$q', '$location', '$rootScope',
 
             config.headers = config.headers || {};
 
-
+            var token = localStorage.getItem('.token');
+            if (token != null) {
+                config.headers.Authorization = token;
+            }
             // var corpoId = DJWebStore.GetValue('CorpoId');
             // var userLang = DJWebStore.GetValue('UserLang');
             // if (corpoId == null)
@@ -30,16 +33,18 @@ OSPLGmSysApp.factory('authInterceptorService', ['$q', '$location', '$rootScope',
             // config.headers.CurrentPeriod = currentPeriodLastDate.endOf('month').format('YYYY-MM-DD');
 
             if (config.url.indexOf('/api/') > 0) {
-                if (!config.data.isLz) {
-                    //compressing data
-                    var data = angular.copy(config.data)
-                    var uncString = JSON.stringify(data)
-                    var compressString = LZString.compressToEncodedURIComponent(uncString);
-                    var postData = {
-                        isLz: true,
-                        data: compressString
+                if (config.data) {
+                    if (!config.data.isLz) {
+                        //compressing data
+                        var data = angular.copy(config.data)
+                        var uncString = JSON.stringify(data)
+                        var compressString = LZString.compressToEncodedURIComponent(uncString);
+                        var postData = {
+                            isLz: true,
+                            data: compressString
+                        }
+                        config.data = JSON.stringify(JSON.stringify(postData));
                     }
-                    config.data = JSON.stringify(JSON.stringify(postData));
                 }
                 console.log(config)
                 //console.log(config.url)
