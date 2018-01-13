@@ -33,9 +33,18 @@
             <form role="form" name="loginForm">
                 <fieldset>
                     <legend>Login</legend>
-                    <div class="form-group has-success has-feedback">
+                    <div class="form-group has-success has-feedback" ng-hide="isRemember">
                         <label>Mobile No</label>
                         <input name="mobile"  type="text" ng-model="loginData.mobileNo" class="form-control" placeholder="Enter mobile no">
+                    </div>
+
+                    <div ng-show="isRemember"> 
+                        <div class="form-group has-success has-feedback">
+                            <label>Welcome Back,</label>
+                            <h3>{{rem.firstName}}  {{rem.lastName}}</h3>
+                            <span>{{rem.WnEn}}</span>
+                        </div>
+                        (<a href ng-click="isRemember=false">Not You</a>)
                     </div>
 
                     <div class="form-group">
@@ -63,7 +72,7 @@
             </form>
         </div>
     </div>
-
+ 
     <div ui-yield-to="modals"></div>
     
     <script src="app.js"></script>

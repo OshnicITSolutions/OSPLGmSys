@@ -58,7 +58,17 @@ OSPLGmSysApp.controller('MainController', function ($rootScope, $scope) {
   }
 
   $scope.logout = function () {
+    var isRem = localStorage.getItem('.isRem');
+    var ru = localStorage.getItem('.ru');
+    var mo = localStorage.getItem('.mo');
+
     localStorage.clear();
+    
+    localStorage.setItem('.isRem', isRem);
+    localStorage.setItem('.ru', ru);
+    localStorage.setItem('.mo', mo);
+
+    
     location.href = 'auth.html';
   }
   $scope.swiped = function (direction) {

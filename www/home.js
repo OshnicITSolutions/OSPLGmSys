@@ -2,15 +2,15 @@
 'use strict';
 
 OSPLGmSysApp.controller('homeController', function ($scope, pageService) {
-    console.log('home')
+    //console.log('home')
 
 
 
     function loadController() {
         pageService.getGrandSummary().then(function (result) {
-            console.log(result);
+            //console.log(result);
             if (result.Table1) {
-                console.log('Table1')
+                //console.log('Table1')
                 var grand = {};
                 grand.weight = result.Table1[0]['CURRENT STOCK [WEIGHT]'];
                 grand.valuation = result.Table1[0]['STOCK VALUATION [TIME OF DEPOSIT]'];
@@ -19,6 +19,16 @@ OSPLGmSysApp.controller('homeController', function ($scope, pageService) {
                 grand.smallBag = result.Table1[0]['STOCK SMALL BAG'];
                 grand.noOfWhr = result.Table1[0]['NO OF OPEN RECEIPT'];
                 $scope.grand = grand;
+            }
+        }, function (err) {
+            console.log(err)
+        })
+
+        pageService.getUserActivity().then(function (result) {
+            //console.log(result)
+
+            if (result.Table1) {
+                $scope.activity = result.Table1;
             }
         }, function (err) {
             console.log(err)

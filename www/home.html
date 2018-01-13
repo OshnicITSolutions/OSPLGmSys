@@ -64,6 +64,43 @@
         </div>
       </div>
 
+      <div class="list-group-item list-group-item-home">
+        <h5>User Activity</h5>
+        <table class="table table-condensed table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Duration</th>
+                <th>WHRs</th>
+                <th>GPs</th>
+                <th>DOs</th>
+                <th>Bills</th>
+              </tr>
+            </thead> 
+            <tbody> 
+              <tr ng-repeat-start="act in activity">
+                <td>{{act.UserName}}<br/>
+                  <em class="text-danger">{{act.LoginId}}</em>
+                </td>
+                <td>{{act.TotalLoginTime}}
+                </td>
+                <td>{{act.WHRCount}}</td>
+                <td>{{act.GPCount}}</td>
+                <td>{{act.DOCount}}</td>
+                <td>{{act.BillCount}}</td>
+              </tr>
+              <tr ng-repeat-end class="text-success">
+                <td colspan="2">
+                    <em>{{act.LoginDate| date : 'dd.MMM hh:mm'}}</em>
+                </td>
+                <td colspan="4">
+                    <em>{{act.LogoutDateTime| date : 'dd.MMM hh:mm'}}</em>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        
+      </div>
 
       <!-- <div class="list-group-item list-group-item-home">
         <div>

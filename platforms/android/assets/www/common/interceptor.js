@@ -103,12 +103,8 @@ OSPLGmSysApp.factory('authInterceptorService', ['$q', '$location', '$rootScope',
             if (response.statusText != 'OK') {
                 //console.log(response)
             }
-            if (response.config.url.endsWith('token')
-                || response.config.url.endsWith('Register')
-                || response.config.url.endsWith('GetAttach')
-                || response.config.url.endsWith('Register')
-                || response.config.url.endsWith('NewPassword')
-                || response.config.url.endsWith('UpdateUser')) {
+            if (response.config.url.endsWith('token1')
+            ) {
             }
             else if (response.config.url.indexOf('/api/') > -1) {
                 var result = {};
@@ -125,8 +121,14 @@ OSPLGmSysApp.factory('authInterceptorService', ['$q', '$location', '$rootScope',
                         if (result_data.lz) {
                             var paramData = LZString.decompressFromEncodedURIComponent(result_data.data);
                             result = angular.fromJson(paramData);
+
+                            if (result.statusCode) {
+                                if (result.statusCode < 0) {
+                                    alert(result.statusText);
+                                }
+                            }
                             //console.log('request converted')
-                            //console.log(result)
+                            console.log(result)
                         }
                     }
                 }

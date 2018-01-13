@@ -37,19 +37,28 @@ OSPLGmSysApp.factory('pageService', ['$http', '$rootScope',
 
 
         function _getGrandSummary() {
+            return _getRequest('Data/Grand');
+        }
 
-            var url = serviceAPIBaseURL + 'Data/Grand'
+        function _getUserActivity() {
+            return _getRequest('Data/Activity');
+        }
+
+        function _getRequest(pagePath) {
+            var url = serviceAPIBaseURL + pagePath;
             return $http.get(url).then(function (results) {
                 return results;
             });
+        }
+        function _postRequest(pagePath, data) {
 
         }
-
         var pageServiceFactory = {};
 
         pageServiceFactory.registerNewUser = _registerNewUser;
         pageServiceFactory.token = _token;
-
+        //======================================================================
         pageServiceFactory.getGrandSummary = _getGrandSummary;
+        pageServiceFactory.getUserActivity = _getUserActivity;
         return pageServiceFactory;
     }]);
