@@ -50,17 +50,17 @@
 
                     <div class="form-group has-success has-feedback">
                         <label>Mobile No</label>
-                        <input type="text" name="mobileNo" ng-required="" ng-model="entity.mobileNo" class="form-control" placeholder="Enter Mobile No">
+                        <input type="text" name="mobileNo" ng-required="true" ng-model="entity.mobileNo" class="form-control" placeholder="Enter Mobile No">
                     </div>
 
                     <div class="form-group">
-                        <label>Login PIN</label>
-                        <input type="password" name="loginPIN" ng-required="" class="form-control" placeholder="Login PIN" ng-model="entity.loginPIN" maxlength="4">
+                        <label>Login PIN <em>(Any 4 digit number)</em></label>
+                        <input ng-maxlength="4" type="password" name="loginPIN" ng-required="true" class="form-control" placeholder="Login PIN" ng-model="entity.loginPIN" maxlength="4">
                     </div>
 
                     <div class="form-group">
                         <label>Confirm PIN</label>
-                        <input type="text" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="entity.confirmPIN"
+                        <input ng-maxlength="4" type="password" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="entity.confirmPIN"
                             maxlength="4">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">

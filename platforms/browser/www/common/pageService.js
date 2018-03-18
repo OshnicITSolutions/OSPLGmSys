@@ -2,8 +2,8 @@
 'use strict';
 OSPLGmSysApp.factory('pageService', ['$http', '$rootScope',
     function ($http, $rootScope) {
-        var serviceAPIBaseURL = 'http://api.osindia.in/api/';
-        // var serviceAPIBaseURL = 'http://localhost:62207/api/';
+        // var serviceAPIBaseURL = 'http://api.osindia.in/api/';
+        var serviceAPIBaseURL = 'http://localhost:62207/api/';
 
 
         function _registerNewUser(entity) {
