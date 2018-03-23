@@ -19,7 +19,7 @@
     <!-- Required to use $touch, $swipe, $drag and $translate services -->
     <script src="dist/js/mobile-angular-ui.gestures.min.js"></script>
     <script src="plugin/lz-string.min.js"></script>
-    
+
 </head>
 
 <body ng-app="OSPLGmSys" ng-controller="registerController" ui-prevent-touchmove-defaults>
@@ -33,39 +33,68 @@
             <form role="form" name="editForm" ng-submit='register(editForm)'>
                 <fieldset>
                     <legend>Register</legend>
-                    <div class="form-group has-success has-feedback">
-                        <label>User Id</label>
-                        <input name="userId" type="text" name="userId" ng-required="true" ng-model="entity.userId" class="form-control" placeholder="Enter User Id">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" name="password" ng-required="true" class="form-control" placeholder="Password" ng-model="entity.password">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Corporate Id</label>
-                        <input type="text" name="corpoId" ng-required="true" class="form-control" placeholder="Corporate Id" ng-model="entity.corporateId">
-                    </div>
 
                     <div class="form-group has-success has-feedback">
-                        <label>Mobile No</label>
-                        <input type="text" name="mobileNo" ng-required="true" ng-model="entity.mobileNo" class="form-control" placeholder="Enter Mobile No">
+
+                        <div class="btn-group" role="group">
+                            <button type="button" ng-click="entity.isDepositer = false;entity.isWarehouse=true;" class="btn btn-default" ng-class="{'btn-info':entity.isWarehouse}">Warehouse
+                            </button>
+                            <button type="button" ng-click="entity.isDepositer = true;entity.isWarehouse=false;" class="btn btn-default" ng-class="{'btn-info':entity.isDepositer}">Depositer
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Login PIN <em>(Any 4 digit number)</em></label>
-                        <input ng-maxlength="4" type="password" name="loginPIN" ng-required="true" class="form-control" placeholder="Login PIN" ng-model="entity.loginPIN" maxlength="4">
+                    <div id="first">
+                        <div class="form-group has-success has-feedback" ng-show="entity.isDepositer">
+                            <label>Depositer Code</label>
+                            <input name="depositer" type="text" name="depositer" ng-required="true" ng-model="entity.depositerCode" class="form-control"
+                                placeholder="Enter Depositer Code">
+                        </div>
+
+                        <div class="form-group has-success has-feedback" ng-show="entity.isWarehouse">
+                            <label>User Id</label>
+                            <input name="userId" type="text" name="userId" ng-required="true" ng-model="entity.userId" class="form-control" placeholder="Enter User Id">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" ng-required="true" class="form-control" placeholder="Password" ng-model="entity.password">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Corporate Id</label>
+                            <input type="text" name="corpoId" ng-required="true" class="form-control" placeholder="Corporate Id" ng-model="entity.corporateId">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" ng-click="validateUser()">
+                            {{buttonText1}}
+                        </button>
+                    </div>
+                    <div id="second" ng-if="isNextSlide">
+
+
+                        <div class="form-group has-success has-feedback">
+                            <label>Mobile No</label>
+                            <input type="text" name="mobileNo" ng-required="true" ng-model="entity.mobileNo" class="form-control" placeholder="Enter Mobile No">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Login PIN
+                                <em>(Any 4 digit number)</em>
+                            </label>
+                            <input ng-maxlength="4" type="password" name="loginPIN" ng-required="true" class="form-control" placeholder="Login PIN" ng-model="entity.loginPIN"
+                                maxlength="4">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Confirm PIN</label>
+                            <input ng-maxlength="4" type="password" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN"
+                                ng-model="entity.confirmPIN" maxlength="4">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            {{buttonText}}
+                        </button>
                     </div>
 
-                    <div class="form-group">
-                        <label>Confirm PIN</label>
-                        <input ng-maxlength="4" type="password" name="confirmPin" ng-required="true" class="form-control" placeholder="Confirm PIN" ng-model="entity.confirmPIN"
-                            maxlength="4">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block">
-                        {{buttonText}}
-                    </button>
                     <a class="btn btn-danger btn-block" href="auth.html">Login</a>
                 </fieldset>
                 <div ui-content-for="navbarAction">
