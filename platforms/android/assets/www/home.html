@@ -1,0 +1,146 @@
+<div class="scrollable" ng-controller="homeController">
+  <div class="scrollable-content">
+
+    <div class="list-group text-left">
+      <div class="list-group-item list-group-item-home">
+        <h4>{{user.WnEn}}
+        </h4>
+        <span>Welcome, {{user.firstName}}</span>
+        <br/>
+      </div>
+
+
+      <div class="list-group-item list-group-item-home">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+
+            <h4 class="panel-title">
+              Today's Grand Summary
+            </h4>
+          </div>
+
+          <div>
+            <div class="panel-body">
+              <table class="table">
+                <tr>
+                  <td>
+                    <b> Current Stock [Weight]</b>
+                  </td>
+                  <td>{{grand.weight}} </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b> Stock Valuation [Deposit]</b>
+                  </td>
+                  <td>Rs. {{grand.valuation  | number:0}} </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b> Stock Valuation [Current]</b>
+                  </td>
+                  <td>Rs. {{grand.currentValue  | number:0}} </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b> Stock Big Bag</b>
+                  </td>
+                  <td>{{grand.bigBag}} </td>
+                </tr>
+                <tr>
+                  <td> 
+                    <b> Stock Small Bag</b>
+                  </td>
+                  <td>{{grand.smallBag}} </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b> Open Receipt</b>
+                  </td>
+                  <td>{{grand.noOfWhr}} </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="list-group-item list-group-item-home">
+        <h5>User Activity</h5>
+        <table class="table table-condensed table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Duration</th>
+                <th>WHRs</th>
+                <th>GPs</th>
+                <th>DOs</th>
+                <th>Bills</th>
+              </tr>
+            </thead> 
+            <tbody> 
+              <tr ng-repeat-start="act in activity">
+                <td>{{act.UserName}}<br/>
+                  <em class="text-danger">{{act.LoginId}}</em>
+                </td>
+                <td>{{act.TotalLoginTime}}
+                </td>
+                <td>{{act.WHRCount}}</td>
+                <td>{{act.GPCount}}</td>
+                <td>{{act.DOCount}}</td>
+                <td>{{act.BillCount}}</td>
+              </tr>
+              <tr ng-repeat-end class="text-success">
+                <td colspan="2">
+                    <em>{{act.LoginDate| date : 'dd.MMM hh:mm'}}</em>
+                </td>
+                <td colspan="4">
+                    <em>{{act.LogoutDateTime| date : 'dd.MMM hh:mm'}}</em>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        
+      </div>
+
+      <!-- <div class="list-group-item list-group-item-home">
+        <div>
+          <i class="fa fa-tachometer feature-icon  text-primary"></i>
+        </div>
+        <div>
+          <h3 class="home-heading">Test responsiveness and speed</h3>
+          Scroll, tap, navigate, test that everything is smooth
+        </div>
+      </div>
+
+
+      <div class="list-group-item list-group-item-home">
+        <div>
+          <i class="fa fa-expand feature-icon  text-primary"></i>
+        </div>
+        <div>
+          <h3 class="home-heading">Resize your browser</h3>
+          Stretch and squeeze your browser window to see both mobile and desktop versions.
+        </div>
+      </div>
+
+      <div class="list-group-item list-group-item-home">
+        <div>
+          <i class="fa fa-stethoscope feature-icon  text-primary"></i>
+        </div>
+        <div>
+          <h3 class="home-heading">Submit an issue</h3>
+          <p>Please submit any issue you'll find,
+            <a href="https://github.com/mcasimir/mobile-angular-ui/issues" target="blank" id="#home-report">reporting</a> your user agent string:
+            <br>
+          </p>
+          <pre>{{userAgent}}</pre>
+          <p>
+            It would help a lot!
+          </p>
+        </div>
+      </div> -->
+
+    </div>
+
+  </div>
+</div>
