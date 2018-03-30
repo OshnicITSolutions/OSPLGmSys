@@ -7,5 +7,5 @@
   "description": "Oshnic's Godown Management System",
   "author": "Team Oshnic",
   "icons": [],
-  "start_url": "auth.html"
+  "start_url": "index.html"
 }

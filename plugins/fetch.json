@@ -7,14 +7,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-admob": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-admob@^4.1.16"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-connectivity-monitor": {
     "source": {
       "type": "registry",
